@@ -1,0 +1,44 @@
+# Build output
+dist/
+src/generated/
+src/generated/prisma
+
+# Dependencies
+node_modules/
+.yarn/
+!.yarn/releases
+
+# Cloudflare Wrangler
+.wrangler/
+
+# VSCode & IDE settings
+.vscode/*
+!.vscode/launch.json
+!.vscode/*.code-snippets
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Prisma generated files (keep schema & migrations)
+prisma/dev.db
+prisma/dev.db-journal
+
+# Environment files
+.env
+.env.production
+.dev.vars
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
