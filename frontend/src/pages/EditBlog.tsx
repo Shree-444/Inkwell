@@ -18,7 +18,7 @@ export function EditBlog() {
   const blogId = params.id;
   const [editor, setEditor] = useState<any>(null);
   const [formData, setFormData] = useState({ title: "", content: "" });
-  const [plainTextContent, setPlainTextContent] = useState("");
+  const [, setPlainTextContent] = useState("");
   const [wordCount, setWordCount] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
