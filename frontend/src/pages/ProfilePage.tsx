@@ -35,7 +35,6 @@ export default function Profile() {
   const [loading, setLoading] = useState(false);
   const Navigate = useNavigate();
   const token = localStorage.getItem("token");
-  const thisUser = localStorage.getItem("thisUser") || "";
   const { authorId } = useParams();
   const thisUserId = localStorage.getItem("authorId");
 

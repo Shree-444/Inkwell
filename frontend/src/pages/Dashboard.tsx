@@ -14,7 +14,6 @@ import parse from 'html-react-parser';
 import { Dropdown } from "@/components/ui/dropdown";
 import { ThemeToggleButton } from "@/components/ui/ThemeToggle";
 import { toast } from "sonner";
-import { Spinner } from "@/components/ui/spinner";
 
 export default function Dashboard() {
   const apiBaseUrl = import.meta.env.VITE_API_URL

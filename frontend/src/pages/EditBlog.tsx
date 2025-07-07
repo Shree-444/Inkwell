@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -26,10 +26,7 @@ export function EditBlog() {
 
   const token = localStorage.getItem("token");
   const estimatedReadTime = Math.max(1, Math.ceil(wordCount / 200));
-  const canPublish = useMemo(() => {
-    return formData.title.trim().length > 0 && plainTextContent.trim().length > 0;
-  }, [formData.title, plainTextContent]);
-
+  
   useEffect(() => {
     if (!blogId) {
       toast.error("Invalid blog ID");

@@ -15,7 +15,6 @@ import { EditProfileSkeleton } from "@/components/ui/skeleton";
 export default function EditProfile() {
   const apiBaseUrl = import.meta.env.VITE_API_URL
   const Navigate = useNavigate();
-  const authorId = localStorage.getItem("authorId");
   const token = localStorage.getItem("token");
 
   const [user, setUser] = useState<userType>({

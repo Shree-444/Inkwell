@@ -7,7 +7,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, Send } from "lucide-react";
 import { useNavigate } from "react-router";
 import axios from "axios";
-import parse from "html-react-parser"
 import { toast } from "sonner";
 import BlogEditor from '@/components/ui/BlogEditor';
 import { AiTools } from "@/components/ui/aiTools";
