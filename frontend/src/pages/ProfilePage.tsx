@@ -143,7 +143,7 @@ export default function Profile() {
                   </div>
 
                   {author?.bio && (
-                    <p className="text-sm text-foreground leading-snug line-clamp-3">{author?.bio}</p>
+                    <p className="text-sm sm:text-base text-foreground leading-snug line-clamp-3">{author?.bio}</p>
                   )}
 
                   <div className="flex flex-wrap gap-3 text-xs text-muted-foreground">
