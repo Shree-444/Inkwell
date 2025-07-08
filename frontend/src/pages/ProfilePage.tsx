@@ -121,8 +121,8 @@ async function handleShare() {
       <header className="bg-card border-b border-border">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            <div className="flex">
-              <Button onClick={() => Navigate(-1)} variant="ghost" size="sm" className="mr-4 hover:opacity-80 cursor-pointer">
+            <div className="flex items-center">
+              <Button onClick={() => Navigate(-1)} variant="ghost" size="sm" className="mr-2 hover:opacity-80 cursor-pointer">
                 <ArrowLeft className="h-4 w-4 mr-2" />
                 Back
               </Button>
