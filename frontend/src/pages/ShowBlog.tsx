@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { ArrowLeft, Share2, ThumbsDownIcon, ThumbsUpIcon } from "lucide-react";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import type { blog } from "@/types/types";
@@ -42,9 +42,9 @@ export default function ShowBlog() {
 
   const Navigate = useNavigate();
   const token = localStorage.getItem("token");
-  const idstring = localStorage.getItem("blogId") || "";
+  const params = useParams()
   const thisUserId = localStorage.getItem("authorId") || "";
-  const id = parseInt(idstring);
+  const id = parseInt(params.id || '')
 
   const fetchReactions = async () => {
     axios.get(`${apiBaseUrl}/reaction/blog/${id}/count`, {
