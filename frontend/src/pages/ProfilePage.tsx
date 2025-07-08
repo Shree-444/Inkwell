@@ -228,7 +228,7 @@ export default function Profile() {
 
                       {/* Title & Content */}
                       <div>
-                        <h3 className="text-lg sm:text-xl font-medium hover:opacity-80 transition line-clamp-1">{blog.title}</h3>
+                        <h3 className="text-lg sm:text-xl mb-2 font-medium hover:opacity-80 transition line-clamp-1">{blog.title}</h3>
                         <p className="prose max-w-none prose-invert text-foreground leading-snug line-clamp-3 mb-2 text-sm sm:text-base">
                           {blog.content.split(" ").length < 22 
                             ? parse(blog.content) 
@@ -307,7 +307,9 @@ export default function Profile() {
                         </div>
 
                         <Button variant="ghost" size="sm" className="text-muted-foreground hover:opacity-80 p-0 h-auto font-normal self-start sm:self-center">
-                          Read more
+                          {blog.content.split(" ").length < 22 
+                            ? '' 
+                            : 'Read more'}
                         </Button>
                       </div>
 
