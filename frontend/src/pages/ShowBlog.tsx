@@ -130,6 +130,11 @@ export default function ShowBlog() {
   };
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.error("Login required to view this blog");
+      Navigate("/login");
+    }
     setLoading(true);
     axios
       .get(`${apiBaseUrl}/blog/${id}`, {
