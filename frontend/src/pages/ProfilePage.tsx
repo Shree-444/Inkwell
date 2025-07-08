@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { ArrowLeft, Edit3, MapPin, Calendar, ThumbsUpIcon, ThumbsDownIcon } from "lucide-react";
+import { ArrowLeft, Edit3, MapPin, Calendar, ThumbsUpIcon, ThumbsDownIcon, Share2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router";
@@ -99,6 +99,23 @@ export default function Profile() {
   }
 };
 
+async function handleShare() {
+    const shareData = { title: author?.name, text: "Check out this profile!", url: window.location.href };
+    if (navigator.share) {
+      try { await navigator.share(shareData); } 
+      catch (err) { console.error("internal error: ", err); }
+    } else {
+      try {
+        await navigator.clipboard.writeText(shareData.url);
+        toast.success("Link copied to clipboard");
+      } catch (err) {
+        console.error("internal error: ", err);
+        toast.error("Server error");
+      }
+    }
+  };
+
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="bg-card border-b border-border">
@@ -132,7 +149,12 @@ export default function Profile() {
                 <div className="flex-1 space-y-2">
                   
                   <div className="flex items-center justify-between">
-                    <h1 className="text-lg sm:text-xl font-medium truncate">{author?.name}</h1>
+                    <div className="flex">
+                      <h1 className="text-lg sm:text-xl mr-4 font-medium truncate">{author?.name}</h1>
+                      <button onClick={handleShare}>
+                        <Share2 size={"18px"}></Share2>
+                      </button>
+                    </div>
                     
                     {author?.id == thisUserId && (
                       <Button
