@@ -42,6 +42,11 @@ export default function EditProfile() {
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.error("Login required to view this blog");
+      Navigate("/login");
+    }
     setLoading(true);
     axios
       .get(`${apiBaseUrl}/user/profile/me`, {

@@ -1,5 +1,5 @@
 import type React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -30,43 +30,41 @@ export default function CreateBlog() {
   const estimatedReadTime = Math.max(1, Math.ceil(wordCount / 200));
 
   const handlePublish = async (e: React.FormEvent) => {
-  e.preventDefault();
-  if (!token) {
-    toast.error("Unauthorized. Please login again.");
-    Navigate("/login");
-    return;
-  }
-
-  setIsLoading(true);
-
-  try {
-    const res = await axios.post(
-       `${apiBaseUrl}/blog`,
-      {
-        title: formData.title,
-        content: formData.content,
-      },
-      {
-        headers: { Authorization: `Bearer ${token}` },
-      }
-    );
-
-    if (!res.data.newBlog) {
-      toast.error("Blog post failed");
-      Navigate("/dashboard");
+    e.preventDefault();
+    if (!token) {
+      toast.error("Unauthorized. Please login again.");
+      Navigate("/login");
       return;
     }
+    setIsLoading(true);
+    try {
+      const res = await axios.post(
+        `${apiBaseUrl}/blog`,
+        {
+          title: formData.title,
+          content: formData.content,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
 
-    toast.success("Blog posted successfully");
-    Navigate("/dashboard");
-    
-  } catch (err) {
-    console.error(err);
-    toast.error("Failed to post blog");
-  } finally {
-    setIsLoading(false);
-  }
-};
+      if (!res.data.newBlog) {
+        toast.error("Blog post failed");
+        Navigate("/dashboard");
+        return;
+      }
+
+      toast.success("Blog posted successfully");
+      Navigate("/dashboard");
+      
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to post blog");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
 
   const handleInputChange = (
@@ -75,6 +73,14 @@ export default function CreateBlog() {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.error("Login required to view this page");
+      Navigate("/login");
+    }
+  }, [])
 
   return (
     <div className="min-h-screen bg-background text-foreground">

@@ -59,6 +59,11 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      toast.error("Login required to view this page");
+      Navigate("/login");
+    }
     setLoading(true);
     fetchBlogsWithReactions().then(setBlogs).finally(() => setLoading(false));
   }, []);
