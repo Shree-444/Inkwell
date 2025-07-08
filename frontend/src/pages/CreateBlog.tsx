@@ -161,7 +161,7 @@ export default function CreateBlog() {
                 </div>
               </div>
               
-              {editor && <AiTools editor={editor} />}
+              {editor?.view && <AiTools editor={editor} />}
 
               <BlogEditor
                 content={formData.content}
