@@ -120,12 +120,19 @@ async function handleShare() {
     <div className="min-h-screen bg-background text-foreground">
       <header className="bg-card border-b border-border">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center h-16">
-            <Button onClick={() => Navigate(-1)} variant="ghost" size="sm" className="mr-4 hover:opacity-80 cursor-pointer">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back
-            </Button>
-            <h1 className="text-lg font-medium">Profile</h1>
+          <div className="flex items-center justify-between h-16">
+            <div className="flex">
+              <Button onClick={() => Navigate(-1)} variant="ghost" size="sm" className="mr-4 hover:opacity-80 cursor-pointer">
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Back
+              </Button>
+              <h1 className="text-lg font-medium">Profile</h1>
+            </div>
+            <div>
+              <Button variant='default' size="sm" className="hover:opacity-80 cursor-pointer" onClick={() => {Navigate('/dashboard')}}>
+                  Dashboard
+              </Button>
+            </div>
           </div>
         </div>
       </header>
