@@ -98,6 +98,7 @@ export default function Signup() {
                   >
                     {showPassword ? <EyeOff className="h-4 w-4 text-muted-foreground" /> : <Eye className="h-4 w-4 text-muted-foreground" />}
                   </Button>
+                  <div className="text-muted-foreground text-sm ml-1">Password must be at least 8 characters long.</div>
                 </div>
               </div>
 

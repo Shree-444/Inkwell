@@ -138,7 +138,9 @@ export default function ShowBlog() {
       .then((res) => {
         const result = res.data.blog;
         setBlog(result);
-        setPublishedAt(formatDistanceToNow(new Date(result.created_at).toLocaleString(), { addSuffix: true }));
+        const isoSafe = result.created_at.replace(" ", "T");
+        const parsedDate = new Date(isoSafe);
+        setPublishedAt(formatDistanceToNow(parsedDate, { addSuffix: true }));
         setReadTime(Math.max(Math.ceil(result.content.split(" ").length / 200), 1));
         fetchReactions();
         setLoading(false);
