@@ -37,7 +37,7 @@ export default function BlogEditor({ content, setContent, setWordCount, setPlain
     if (editor && getEditor) {
       getEditor(editor);
     }
-  }, [!!editor]);
+  }, [editor, getEditor]);
 
   return (
     <div className="space-y-4">
