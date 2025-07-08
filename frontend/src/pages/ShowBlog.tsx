@@ -164,9 +164,8 @@ export default function ShowBlog() {
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back
             </Button>
-            <Button variant="ghost" size="sm" className="hover:opacity-80 cursor-pointer" onClick={handleShare}>
-              <Share2 className="h-4 w-4 mr-2" />
-              Copy link to share
+            <Button variant='default' size="sm" className="hover:opacity-80 cursor-pointer" onClick={() => {Navigate('/dashboard')}}>
+              Dashboard
             </Button>
           </div>
         </div>
