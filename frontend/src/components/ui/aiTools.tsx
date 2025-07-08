@@ -13,7 +13,7 @@ export function AiTools({ editor }: AiToolsProps) {
   const [loading, setLoading] = useState(false);
 
   const getSelectedText = () => {
-    if (!editor || !editor.isFocused) return ""; 
+    if (!editor) return ""; 
      
     const { from, to } = editor.view.state.selection;
 
@@ -23,10 +23,11 @@ export function AiTools({ editor }: AiToolsProps) {
   };
 
   const replaceSelectedText = (newText: string) => {
-    const { state } = editor;
-    const { from, to } = state.selection;
+    const { from, to } = editor.view.state.selection;
 
-    editor.commands.insertContentAt({ from, to }, newText);
+    if (from === to) return;
+
+    editor.chain().focus().insertContentAt({ from, to }, newText).run();
   };
 
   async function handleAi(type: "paraphrase" | "grammar" | "shorten" | "extend" ) {
