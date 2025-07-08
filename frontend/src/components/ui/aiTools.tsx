@@ -13,9 +13,8 @@ export function AiTools({ editor }: AiToolsProps) {
   const [loading, setLoading] = useState(false);
 
   const getSelectedText = () => {
-    if (!editor) return "";
-    
-    editor.commands.focus(); 
+    if (!editor || !editor.isFocused) return ""; 
+     
     const { from, to } = editor.view.state.selection;
 
     if (from === to) return ""; 

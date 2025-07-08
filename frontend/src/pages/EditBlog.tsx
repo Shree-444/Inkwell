@@ -91,7 +91,7 @@ export function EditBlog() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <Button
-                onClick={() => Navigate(`/blog/${blogId}`)}
+                onClick={() => Navigate(-1)}
                 variant="ghost"
                 size="sm"
                 className="mr-1 text-foreground hover:opacity-80 cursor-pointer"
