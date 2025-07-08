@@ -4,6 +4,8 @@
 
 **Inkwell** is a minimalistic AI assisted blogging platform designed for a seamless writing and reading experience. It offers a clean interface, responsive design, and essential features for content publishing, making it ideal for writers who value simplicity and performance.
 
+### Check out Inkwell live: [https://inkwellblog.vercel.app](https://inkwellblog.vercel.app)
+
 
 ## Tech Stack
 
