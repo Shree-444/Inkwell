@@ -153,7 +153,7 @@ export default function Signup() {
                     toast.success("Account created successfully");
                     navigate("/dashboard");
                   } else {
-                    toast.error("Account creation failed");
+                    toast.error(res.data.msg);
                   }
                   setLoading(false);
                 } catch {
