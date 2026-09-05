@@ -5,10 +5,5 @@
   "compatibility_date": "2025-06-09",
    "compatibility_flags": [
      "nodejs_compat"
-  ],
-   "vars": {
-     "DATABASE_URL":"",
-     "SECRET_KEY": "",
-     "GEMINI_API_KEY": ""
-    },
+  ]
 }
